@@ -37,6 +37,21 @@ func TestSpawn(t *testing.T) {
 	}
 }
 
+func TestOptionalField(t *testing.T) {
+	_, err := SpawnTunnel(SpawnTunnelRequest{
+		SshAddr:         getenv("SSH_ADDR", t),
+		SshUser:         getenv("SSH_USER", t),
+		SshIdentityFile: getenv("SSH_IDENTITY_FILE", t),
+
+		RemoteAddr: getenv("REMOTE_ADDR", t),
+		LocalAddr:  "",
+	})
+
+	if err != nil {
+		t.Fatalf("%v", err)
+	}
+}
+
 func TestUnknownMessageType(t *testing.T) {
 	_, err := makeRequest(1024, nil)
 	if err == nil {
