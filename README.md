@@ -3,6 +3,12 @@
 
 ### Usage:
 ```Go
+import (
+    "fmt"
+
+    "github.com/elchinchel/gorwarderd"
+)
+
 resp, err = SpawnTunnel(SpawnTunnelRequest{
     SshAddr:         "hostname: port",
     SshUser:         "user",
