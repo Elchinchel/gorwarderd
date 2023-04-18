@@ -32,8 +32,9 @@ func makeRequest(msgType int, data interface{}) (interface{}, error) {
 	return loadFrame(rawResp)
 }
 
-// Request daemon to start tunnel. If tunnel was requested earlier and
-// already running, returned local address may differ from specified
+// SpawnTunnel request daemon to start tunnel.
+// If tunnel was requested earlier and already running,
+// returned local address may differ from specified
 func SpawnTunnel(data SpawnTunnelRequest) (val SpawnTunnelResponse, err error) {
 	resp, err := makeRequest(msgTypeSpawnTunnel, data)
 	if err == nil {
